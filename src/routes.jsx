@@ -6,9 +6,12 @@ const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
+
         <Route path="/" element={ <PaginaBase /> }>
-          <Route index element={ <Inicio /> }/>
+          <Route index element={ <Inicio /> } />
+          <Route path="*" element={ <Inicio /> } />
         </Route>
+
       </Routes>
     </BrowserRouter>
   )

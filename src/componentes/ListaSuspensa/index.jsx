@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import useTimesContext from "../../contexto/useTimesContext";
 
-const ListaSuspensa = ({ nome }) => {
+const ListaSuspensa = ({ nome, obrigatorio }) => {
   const { times } = useTimesContext();
 
   return(
     <>
       <label htmlFor={"i" + nome}>{nome}</label>
-      <select id={"i" + nome}>
+      <select id={"i" + nome} required={obrigatorio}>
         <option value="0">--Selecione um {nome}--</option>
-        {times.map(time => <option key={time.id}>{time.nome}</option>)}
+        {times.map(time => <option key={time.id} value={time.id}>{time.nome}</option>)}
       </select>
     </>
     
@@ -17,7 +17,8 @@ const ListaSuspensa = ({ nome }) => {
 }
 
 ListaSuspensa.propTypes = {
-  nome: PropTypes.string.isRequired
+  nome: PropTypes.string.isRequired,
+  obrigatorio: PropTypes.bool
 };
 
 export default ListaSuspensa

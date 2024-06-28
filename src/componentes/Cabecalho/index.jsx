@@ -2,7 +2,7 @@ import styled from "styled-components"
 import PropTypes from 'prop-types';
 
 const HeaderEstilizado = styled.header`
-  background-color: ${(props) => props.cor};
+  background-color: ${(props) => props.color};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,7 +41,7 @@ const DivEstilizada = styled.div`
 
 const Cabecalho = ({ cor }) => {
   return(
-    <HeaderEstilizado cor={cor}>
+    <HeaderEstilizado color={cor}>
       <DivEstilizada>
         <img src="/public/logo.png" alt="Logo"/>
         <h1>Pessoas e Times</h1>

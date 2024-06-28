@@ -70,8 +70,6 @@ const SectionEstilizado = styled.section`
 `
 
 const Formulario = () => {
-
-
   return(
     <SectionEstilizado>
       <h2>Preencha os dados para criar o card do colaborador.</h2>
@@ -100,6 +98,7 @@ const Formulario = () => {
 
         <ListaSuspensa 
           nome="Time"
+          obrigatorio={true}
         />
 
         <button>Criar Card</button>

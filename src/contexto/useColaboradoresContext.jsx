@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import ColaboradoresContext from './ColaboradoresContext';
+import {ColaboradoresContext} from './Contextos';
 
 export const useColaboradoresContext = () => {
   return useContext(ColaboradoresContext);

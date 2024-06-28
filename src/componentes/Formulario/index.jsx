@@ -1,6 +1,8 @@
 import styled from "styled-components"
 import CampoFormulario from "../CampoFormulario"
 import ListaSuspensa from "../ListaSuspensa"
+import { useState } from "react"
+import useColaboradorContext from "../../contexto/useColaboradoresContext";
 
 const SectionEstilizado = styled.section`
   display: flex;
@@ -67,19 +69,71 @@ const SectionEstilizado = styled.section`
     background-color: #6278f7e2;
     border-color: #6278f7e2;
   }
+
+  .error{
+    border-color: red;
+  }
 `
 
 const Formulario = () => {
+  const { adicionarColaborador } = useColaboradorContext();
+  const [nome, setNome] = useState('');
+  const [cargo, setCargo] = useState('');
+  const [img, setImg] = useState('');
+  const [time, setTime] = useState('');
+  const [errors, setErrors] = useState({});
+
+  function URLValida(string) {
+    var res = string.match(/(http|https):\/\/(\w+:?\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/);
+    return (res !== null);
+  } 
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+
+    const newErrors = {};
+    
+    if(!nome || nome.length < 10) { newErrors.nome = "O nome é obrigatório e tem que ter mais de 10 caracteres!" }
+    if(!cargo || cargo.length < 5) { newErrors.cargo = "O cargo é obrigatório e tem que ter mais de 5 caracteres!" }
+    if(!img || !URLValida(img)) { newErrors.img = "A imagem é obrigatória e tem que ser uma URL!" }
+    if(time == 0) { newErrors.time = "O time é obrigatório!" }
+
+    if(Object.keys(newErrors).length > 0){
+      setErrors(newErrors);
+      return;
+    }
+
+    const novoColaborador = {
+      nome,
+      cargo,
+      img,
+      time
+    }
+
+    adicionarColaborador(novoColaborador)
+
+    setNome('');
+    setCargo('');
+    setImg('');
+    setTime('');
+
+    document.querySelectorAll("input").forEach(input => input.value = '');
+    document.querySelectorAll("select").forEach(select => select.value = '0');
+  }
+
   return(
     <SectionEstilizado>
       <h2>Preencha os dados para criar o card do colaborador.</h2>
       
-      <form>
+      <form onSubmit={onSubmit}>
         <CampoFormulario
           nomeCampo="Nome"
           tipoInput="text"
           placeholder="Digite o seu nome"
           obrigatorio={true}
+          onChange={(e) => setNome(e.target.value)}
+          className={errors.nome ? 'error' : ''}
+          erro={errors.nome}
         />
 
         <CampoFormulario 
@@ -87,6 +141,9 @@ const Formulario = () => {
           tipoInput="text"
           placeholder="Digite o seu cargo"
           obrigatorio={true}
+          onChange={(e) => setCargo(e.target.value)}
+          className={errors.cargo ? 'error' : ''}
+          erro={errors.cargo}
         />
 
         <CampoFormulario 
@@ -94,11 +151,17 @@ const Formulario = () => {
           tipoInput="url"
           placeholder="Informe o endereço da imagem"
           obrigatorio={true}
+          onChange={(e) => setImg(e.target.value)}
+          className={errors.img ? 'error' : ''}
+          erro={errors.img}
         />
 
         <ListaSuspensa 
           nome="Time"
           obrigatorio={true}
+          onChange={(e) => setTime(e.target.value)}
+          className={errors.time ? 'error' : ''}
+          erro={errors.time}
         />
 
         <button>Criar Card</button>

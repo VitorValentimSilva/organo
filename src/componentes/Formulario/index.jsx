@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import CampoFormulario from "../CampoFormulario"
+import ListaSuspensa from "../ListaSuspensa"
 
 const SectionEstilizado = styled.section`
   display: flex;
@@ -43,6 +44,10 @@ const SectionEstilizado = styled.section`
     font-size: 18px;
   }
 
+  select{
+    width: 823px;
+  }
+
   button{
     cursor: pointer;
     background-color: #6278F7;
@@ -65,6 +70,8 @@ const SectionEstilizado = styled.section`
 `
 
 const Formulario = () => {
+
+
   return(
     <SectionEstilizado>
       <h2>Preencha os dados para criar o card do colaborador.</h2>
@@ -91,10 +98,9 @@ const Formulario = () => {
           obrigatorio={true}
         />
 
-        <label htmlFor="iTime">Time</label>
-        <select>
-          <option value="0">--Selecione um Time--</option>
-        </select>
+        <ListaSuspensa 
+          nome="Time"
+        />
 
         <button>Criar Card</button>
       </form>

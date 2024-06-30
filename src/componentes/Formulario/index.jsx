@@ -116,6 +116,7 @@ const Formulario = () => {
     setCargo('');
     setImg('');
     setTime('');
+    setErrors({})
 
     document.querySelectorAll("input").forEach(input => input.value = '');
     document.querySelectorAll("select").forEach(select => select.value = '0');

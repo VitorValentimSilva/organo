@@ -22,8 +22,20 @@ const SectionEstilizada = styled.section`
     padding-left: 108px;
   }
 
-  .divTopo > img {
+  .divTopo > img{
     cursor: pointer;
+  }
+
+  @media(max-width: 830px){
+    .divTopo > h2{
+      font-size: 30px;
+      padding-left: 50px;
+    }
+
+    .divTopo > img{
+      width: 90px;
+      height: 90px;
+    }
   }
 `
 

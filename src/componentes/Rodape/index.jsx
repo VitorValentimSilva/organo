@@ -22,6 +22,27 @@ const FooterEstilizado = styled.footer`
     line-height: 24.38px;
     text-align: right;
   }
+
+  @media(max-width: 690px){
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 220px;
+
+    img{
+      width: 150px;
+    }
+
+    > div > a > img{
+      width: 50px;
+      height: 50px;
+      margin-top: 15px;
+    }
+
+    p{
+      font-size: 17px;
+    }
+  }
 `
 
 const Rodape = ({ cor }) => {

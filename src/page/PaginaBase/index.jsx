@@ -3,7 +3,6 @@ import Cabecalho from "../../componentes/Cabecalho"
 import EstilosGlobais from "../../componentes/EstilosGlobais"
 import Rodape from "../../componentes/Rodape"
 
-
 const PaginaBase = () => {
   return(
     <>

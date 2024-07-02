@@ -73,6 +73,46 @@ const SectionEstilizado = styled.section`
   .error{
     border-color: red;
   }
+
+  @media(max-width: 1020px){
+    width: 800px;
+
+    input, select{
+      width: 600px;
+    }
+
+    select{
+      width: 623px;
+    }
+  }
+
+  @media(max-width: 830px){
+    width: 360px;
+    height: 680px;
+
+    form{
+      align-items: center;
+      justify-content: center;
+    }
+
+    input, select{
+      width: 300px;
+      height: 65px;
+    }
+
+    select{
+      width: 323px;
+    }
+
+    button{
+      height: 67px;
+    }
+
+    h2{
+      font-size: 22px;
+      text-align: center;
+    }
+  }
 `
 
 const Formulario = () => {

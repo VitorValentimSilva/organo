@@ -11,9 +11,40 @@ const HeaderEstilizado = styled.header`
   padding: 4% 8% 0 8%;
 
   > img{
-    width: 25%;
-    height: 100%;
+    width: 400px;
+    height: 350px;
     border-radius: 10px;
+  }
+
+  @media(max-width: 1000px){
+    justify-content: center;
+    text-align: center;
+
+    > img{
+      display: none;
+    }
+
+    > div{
+      h1{
+        text-align: center;
+      }
+
+      p{
+        text-align: center;
+      }
+    }
+  }
+
+  @media(max-width: 600px){
+    > div{
+      h1{
+        font-size: 50px;
+      }
+
+      p{
+        font-size: 25px;
+      }
+    }
   }
 `
 

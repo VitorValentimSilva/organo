@@ -123,7 +123,7 @@ const Formulario = () => {
   }
 
   return(
-    <SectionEstilizado>
+    <SectionEstilizado className="formularioColaborador">
       <h2>Preencha os dados para criar o card do colaborador.</h2>
       
       <form onSubmit={onSubmit}>

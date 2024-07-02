@@ -29,7 +29,7 @@ const DivEstilizada = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${(props) => props.corPrimaria};
+  background-color: ${(props) => props.corprimaria};
 
   h3{
     font-size: 32px;
@@ -37,7 +37,7 @@ const DivEstilizada = styled.div`
     line-height: 43.36px;
     text-align: center;
     color: #212121;
-    border-bottom: 3px solid ${(props) => props.corSecundaria};
+    border-bottom: 3px solid ${(props) => props.corsecundaria};
     display: inline-block;
   }
 
@@ -53,7 +53,7 @@ const DivEstilizada = styled.div`
   .divColaborador{
     width: 262px;
     height: 272px;
-    background: ${(props) => props.corSecundaria};
+    background: ${(props) => props.corsecundaria};
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -109,7 +109,7 @@ const Cards = ({ timeNome }) => {
   const { corPrimaria, corSecundaria } = CorTime(timeNome);
 
   return(
-    <DivEstilizada corPrimaria={corPrimaria} corSecundaria={corSecundaria}>
+    <DivEstilizada corprimaria={corPrimaria} corsecundaria={corSecundaria}>
       <h3>{timeNome}</h3>
 
       <div className="divContainer">

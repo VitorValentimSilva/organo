@@ -31,11 +31,18 @@ const Times = () => {
   const { times } = useTimesContext();
   const { colaboradores } = useColaboradoresContext()
 
+  function botaoFormulario(){
+    let formularioColaborador = document.querySelector(".formularioColaborador")
+
+    if(formularioColaborador.style.display == "none"){ formularioColaborador.style.display = "flex" }
+    else{ formularioColaborador.style.display = "none" }
+  }
+
   return(
     <SectionEstilizada>
       <div className="divTopo">
         <h2>Minha Organização:</h2>
-        <img src="/public/addBotao.png" alt="Botao add"/>
+        <img src="/public/addBotao.png" alt="Botao add" onClick={botaoFormulario}/>
       </div>
       
       {times.map(time => {

@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Inicio from "./page/Inicio"
 import PaginaBase from "./page/PaginaBase"
+import Login from "./page/Login"
 
 const AppRoutes = () => {
   return (
@@ -9,9 +10,9 @@ const AppRoutes = () => {
 
         <Route path="/" element={ <PaginaBase /> }>
           <Route index element={ <Inicio /> } />
-          <Route path="*" element={ <Inicio /> } />
+          <Route path="*" element={ <Inicio /> } />    
         </Route>
-
+        <Route path="/login" element={ <Login /> } />
       </Routes>
     </BrowserRouter>
   )

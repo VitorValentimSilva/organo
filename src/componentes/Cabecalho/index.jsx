@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
 const HeaderEstilizado = styled.header`
   background-color: ${(props) => props.color};
@@ -10,7 +11,28 @@ const HeaderEstilizado = styled.header`
   padding-top: 4%;
   padding: 4% 8% 0 8%;
 
-  > img{
+  .divSegunda{
+    display: flex;
+    gap: 60px;
+
+    a{
+      background-color: #001aff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      transition: background-color 0.3s;
+      text-decoration: none;
+      height: 20px;
+      padding: 15px 30px;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+
+  .divSegunda > img{
     width: 400px;
     height: 350px;
     border-radius: 10px;
@@ -19,8 +41,9 @@ const HeaderEstilizado = styled.header`
   @media(max-width: 1000px){
     justify-content: center;
     text-align: center;
+    flex-direction: column;
 
-    > img{
+    .divSegunda > img{
       display: none;
     }
 
@@ -79,7 +102,10 @@ const Cabecalho = ({ cor }) => {
         <p>Organizados em um so lugar!</p>
       </DivEstilizada>
 
-      <img src="/public/imagemHeader.png" alt="Imagem do Header"/>
+      <div className="divSegunda">
+        <img src="/public/imagemHeader.png" alt="Imagem do Header"/>
+        <Link to="/login">Login</Link>
+      </div>
     </HeaderEstilizado>
   )
 }

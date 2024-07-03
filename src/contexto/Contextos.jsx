@@ -6,4 +6,7 @@ TimesContext.displayName = "Times";
 const ColaboradoresContext = createContext();
 ColaboradoresContext.displayName = "Colaboradores";
 
-export { TimesContext, ColaboradoresContext };
+const LoginContext = createContext()
+LoginContext.displayName = "Login"
+
+export { TimesContext, ColaboradoresContext, LoginContext };

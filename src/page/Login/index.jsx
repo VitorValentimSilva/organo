@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import useLoginContext from "../../contexto/useLoginContext";
 import { useNavigate } from 'react-router-dom';
+import EstilosGlobais from "../../componentes/EstilosGlobais"
 
 const MainEstilizado = styled.main`
   display: flex;
@@ -66,42 +67,46 @@ const Login = () => {
     
     const user = login.find(logins => logins.email === email && logins.senha === senha);
     if(user){
-      navigate('/');
+      navigate('/adm');
     } else {
       alert("Email ou senha inválido!");
     }
   };
 
   return (
-    <MainEstilizado>
-      <DivEstilizada>
-        <FormEstilizado onSubmit={onSubmit}>
-          <label htmlFor="iEmail">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="iEmail"
-            required
-            placeholder="Digite o seu email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+    <>
+      <EstilosGlobais />
+      <MainEstilizado>
+        <DivEstilizada>
+          <FormEstilizado onSubmit={onSubmit}>
+            <label htmlFor="iEmail">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="iEmail"
+              required
+              placeholder="Digite o seu email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-          <label htmlFor="iSenha">Senha</label>
-          <input
-            type="password"
-            name="senha"
-            id="iSenha"
-            required
-            placeholder="Digite a sua senha"
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
-          />
+            <label htmlFor="iSenha">Senha</label>
+            <input
+              type="password"
+              name="senha"
+              id="iSenha"
+              required
+              placeholder="Digite a sua senha"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+            />
 
-          <input type="submit" value="Logar" />
-        </FormEstilizado>
-      </DivEstilizada>
-    </MainEstilizado>
+            <input type="submit" value="Logar" />
+          </FormEstilizado>
+        </DivEstilizada>
+      </MainEstilizado>
+    </>
+    
   );
 };
 

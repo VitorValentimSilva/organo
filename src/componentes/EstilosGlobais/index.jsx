@@ -7,7 +7,7 @@ const EstilosGlobais = createGlobalStyle`
     font-family: 'Times New Roman', Times, serif, sans-serif;
   }
   body {
-    margin: 0;
+    margin: 0%;
     min-height: 100vh;
   }
   main {

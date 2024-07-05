@@ -65,8 +65,7 @@ const Login = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     
-    const user = login.find(logins => logins.email === email && logins.senha === senha);
-    if(user){
+    if (login(email, senha)) {
       navigate('/adm');
     } else {
       alert("Email ou senha inválido!");

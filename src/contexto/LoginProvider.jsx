@@ -3,18 +3,33 @@ import PropTypes from 'prop-types';
 import { LoginContext } from './Contextos';
 
 export const LoginProvider = ({ children }) => {
-  const [login, setLogin] = useState({});
+  const [loginData, setLoginData] = useState([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     fetch('https://tourmaline-climbing-runner.glitch.me/login')
       .then((resposta) => resposta.json())
       .then((dados) => {
-        setLogin(dados);
+        setLoginData(dados);
       });
   }, []);
 
+  const login = (email, senha) => {
+    const user = loginData.find(logins => logins.email === email && logins.senha === senha);
+    if (user) {
+      setIsAuthenticated(true);
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const logout = () => {
+    setIsAuthenticated(false);
+  };
+
   return (
-    <LoginContext.Provider value={{ login }}>
+    <LoginContext.Provider value={{ login, logout, isAuthenticated }}>
       {children}
     </LoginContext.Provider>
   );

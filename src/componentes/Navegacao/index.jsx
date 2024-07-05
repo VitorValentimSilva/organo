@@ -114,8 +114,8 @@ const Navegacao = ({ nomeNav1, nomeNav2 }) => {
             {nomeNav1}
             {Nav1Open && (
               <ul>
-                <li><Link to={`/${nomeNav1.toLowerCase()}/lista`}>Lista de {nomeNav1}</Link></li>
-                <li><Link to={`/${nomeNav1.toLowerCase()}/adicionar`}>Adicionar {nomeNav1}</Link></li>
+                <li><Link to={`/adm/lista${nomeNav1}`}>Lista de {nomeNav1}</Link></li>
+                <li><Link to={`/adm/adicionar${nomeNav1}`}>Adicionar {nomeNav1}</Link></li>
               </ul>
             )}
           </li>
@@ -123,8 +123,8 @@ const Navegacao = ({ nomeNav1, nomeNav2 }) => {
             {nomeNav2}
             {Nav2Open && (
               <ul>
-                <li><Link to={`/${nomeNav2.toLowerCase()}/lista`}>Lista de {nomeNav2}</Link></li>
-                <li><Link to={`/${nomeNav2.toLowerCase()}/adicionar`}>Adicionar {nomeNav2}</Link></li>
+                <li><Link to={`/adm/lista${nomeNav2}`}>Lista de {nomeNav2}</Link></li>
+                <li><Link to={`/adm/adicionar${nomeNav2}`}>Adicionar {nomeNav2}</Link></li>
               </ul>
             )}
           </li>

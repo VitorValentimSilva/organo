@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const CampoFormulario = ({ nomeCampo, tipoInput, placeholder, obrigatorio, onChange, className, erro }) => {
+const CampoFormulario = ({ nomeCampo, tipoInput, placeholder, obrigatorio, onChange, className, erro, value }) => {
   return (
     <>
       <label htmlFor={"i" + nomeCampo}>{nomeCampo}</label>
@@ -12,6 +12,7 @@ const CampoFormulario = ({ nomeCampo, tipoInput, placeholder, obrigatorio, onCha
         required={obrigatorio}
         onChange={onChange}
         className={className}
+        defaultValue={value}
       />
     </>
   )
@@ -22,9 +23,10 @@ CampoFormulario.propTypes = {
   tipoInput: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   obrigatorio: PropTypes.bool,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   className: PropTypes.string,
-  erro: PropTypes.string
+  erro: PropTypes.string,
+  value: PropTypes.string
 };
 
 export default CampoFormulario

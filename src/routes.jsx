@@ -2,8 +2,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Inicio from "./page/Inicio"
 import PaginaBase from "./page/PaginaBase"
 import Login from "./page/Login"
-import AdmPagina from "./page/AdmPagina"
+import AdmPagina from "./page/AdmPaginaBase"
 import ProtectedRoute from "./componentes/ProtectedRoute/ProtectedRoute"
+import ListaDeTimes from "./page/ListaDeTimes"
 
 const AppRoutes = () => {
   return (
@@ -14,9 +15,12 @@ const AppRoutes = () => {
           <Route path="*" element={ <Inicio /> } />
         </Route>
         <Route path="/login" element={ <Login /> } />
-        <Route path="/adm" element={
-          <ProtectedRoute element={<AdmPagina />} />
-        } />
+        <Route path="/adm" element={<ProtectedRoute element={ <AdmPagina /> } />}>
+          <Route path="listaTimes" element={ <ListaDeTimes /> } />
+          <Route path="adicionarTimes" element={<div>Adicionar Times</div>} />
+          <Route path="listaColaboradores" element={<div>Lista de Colaboradores</div>} />
+          <Route path="adicionarColaboradores" element={<div>Adicionar Colaboradores</div>} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

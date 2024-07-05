@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import Navegacao from "../../componentes/Navegacao"
 import EstilosGlobais from "../../componentes/EstilosGlobais"
+import { Outlet } from "react-router-dom"
 
 const MainEstilizado = styled.main`
   display: flex;
@@ -17,6 +18,7 @@ const AdmPagina = () => {
           nomeNav2="Colaboradores"
         />
 
+        <Outlet />
       </MainEstilizado>
     </>
     

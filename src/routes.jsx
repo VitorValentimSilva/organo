@@ -19,7 +19,6 @@ const AppRoutes = () => {
           <Route path="listaTimes" element={ <ListaDeTimes /> } />
           <Route path="adicionarTimes" element={<div>Adicionar Times</div>} />
           <Route path="listaColaboradores" element={<div>Lista de Colaboradores</div>} />
-          <Route path="adicionarColaboradores" element={<div>Adicionar Colaboradores</div>} />
         </Route>
       </Routes>
     </BrowserRouter>

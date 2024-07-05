@@ -66,7 +66,7 @@ const Login = () => {
     event.preventDefault();
     
     if (login(email, senha)) {
-      navigate('/adm');
+      navigate('/adm/listaTimes');
     } else {
       alert("Email ou senha inválido!");
     }

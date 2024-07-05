@@ -104,7 +104,9 @@ const Navegacao = ({ nomeNav1, nomeNav2 }) => {
 
   return (
     <SectionEstilizada>
-      <Logo src="/public/logo.png" alt="Logo" />
+      <Link to='/'>
+        <Logo src="/logo.png" alt="Logo" />
+      </Link>
 
       <Titulo>Painel Administrativo</Titulo>
 
@@ -124,7 +126,7 @@ const Navegacao = ({ nomeNav1, nomeNav2 }) => {
             {Nav2Open && (
               <ul>
                 <li><Link to={`/adm/lista${nomeNav2}`}>Lista de {nomeNav2}</Link></li>
-                <li><Link to={`/adm/adicionar${nomeNav2}`}>Adicionar {nomeNav2}</Link></li>
+                <li><Link to='/'>Adicionar {nomeNav2}</Link></li>
               </ul>
             )}
           </li>

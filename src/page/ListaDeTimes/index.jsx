@@ -1,6 +1,6 @@
+import { useState } from "react";
 import styled from "styled-components";
 import useTimesContext from "../../contexto/useTimesContext";
-import { useState } from "react";
 import FormularioEditar from "../../componentes/FormularioEditar";
 
 const SectionEstilizado = styled.section`
@@ -14,8 +14,7 @@ const SectionEstilizado = styled.section`
 `;
 
 const Table = styled.table`
-  width: 100%;
-  height: 700px;
+  width: 90%;
   border-collapse: collapse;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -46,6 +45,11 @@ const TableData = styled.td`
   font-size: 17px;
 `;
 
+const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
 const EditButton = styled.button`
   padding: 8px 16px;
   background-color: #007bff;
@@ -60,8 +64,16 @@ const EditButton = styled.button`
   }
 `;
 
+const DeleteButton = styled(EditButton)`
+  background-color: #dc3545;
+
+  &:hover {
+    background-color: #bd2130;
+  }
+`;
+
 const ListaDeTimes = () => {
-  const { times } = useTimesContext();
+  const { times, excluirTime } = useTimesContext();
   const [timeSelecionado, setTimeSelecionado] = useState(null);
 
   return (
@@ -82,7 +94,10 @@ const ListaDeTimes = () => {
               <TableData>{time.nome}</TableData>
               <TableData>{time.cor}</TableData>
               <TableData>
-                <EditButton onClick={() => setTimeSelecionado(time)}>Editar</EditButton>
+                <ButtonWrapper>
+                  <EditButton onClick={() => setTimeSelecionado(time)}>Editar</EditButton>
+                  <DeleteButton onClick={() => excluirTime(time.id)}>Excluir</DeleteButton>
+                </ButtonWrapper>
               </TableData>
             </TableRow>
           ))}

@@ -38,8 +38,25 @@ export const TimesProvider = ({ children }) => {
     }
   };
 
+  const excluirTime = async (id) => {
+    try {
+      const response = await fetch(`https://tourmaline-climbing-runner.glitch.me/times/${id}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        throw new Error('Falha ao excluir time');
+      }
+
+      setTimes((times) => times.filter((time) => time.id !== id));
+      alert('Time excluído com sucesso!');
+    } catch (error) {
+      console.error('Erro ao excluir time:', error);
+    }
+  };
+
   return (
-    <TimesContext.Provider value={{ times, editarTime }}>
+    <TimesContext.Provider value={{ times, editarTime, excluirTime }}>
       {children}
     </TimesContext.Provider>
   );

@@ -53,7 +53,7 @@ const Rodape = ({ cor }) => {
         <a href="https://www.linkedin.com/in/vitor-valentim-desenvolvedor/" target="_blank"><img src={iconeLinkeDin} alt="Icone Do LinkeDin"/></a>
       </div>
 
-      <img src="/public/logo.png" alt="Logo Organo"/>
+      <img src="/logo.png" alt="Logo Organo"/>
 
       <p>Desenvolvido por Vitor Valentim</p>
     </FooterEstilizado>

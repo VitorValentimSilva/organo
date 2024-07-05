@@ -54,7 +54,7 @@ const Times = () => {
     <SectionEstilizada>
       <div className="divTopo">
         <h2>Minha Organização:</h2>
-        <img src="/public/addBotao.png" alt="Botao add" onClick={botaoFormulario}/>
+        <img src="/addBotao.png" alt="Botao add" onClick={botaoFormulario}/>
       </div>
       
       {times.map(time => {

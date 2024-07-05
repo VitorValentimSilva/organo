@@ -97,13 +97,13 @@ const Cabecalho = ({ cor }) => {
   return(
     <HeaderEstilizado color={cor}>
       <DivEstilizada>
-        <img src="/public/logo.png" alt="Logo"/>
+        <img src="/logo.png" alt="Logo"/>
         <h1>Pessoas e Times</h1>
         <p>Organizados em um so lugar!</p>
       </DivEstilizada>
 
       <div className="divSegunda">
-        <img src="/public/imagemHeader.png" alt="Imagem do Header"/>
+        <img src="/imagemHeader.png" alt="Imagem do Header"/>
         <Link to="/login">Login</Link>
       </div>
     </HeaderEstilizado>

@@ -80,9 +80,9 @@ const CancelButton = styled(Button)`
   }
 `;
 
-const FormularioEditar = ({ time, onClose }) => {
-  const [nome, setNome] = useState(time.nome);
-  const [cor, setCor] = useState(time.cor);
+const FormularioEditar = ({ item, onClose }) => {
+  const [nome, setNome] = useState(item.nome);
+  const [cor, setCor] = useState(item.cor);
   const [errors, setErrors] = useState({});
   const { editarTime } = useTimesContext();
 
@@ -100,7 +100,7 @@ const FormularioEditar = ({ time, onClose }) => {
     }
 
     const timeAtualizado = {
-      id: time.id,
+      id: item.id,
       nome,
       cor
     }
@@ -121,7 +121,7 @@ const FormularioEditar = ({ time, onClose }) => {
               obrigatorio={true}
               onChange={(e) => setNome(e.target.value)}
               erro={errors.nome}
-              value={time.nome}
+              value={item.nome}
             />
           </FormGroup>
           <FormGroup>
@@ -131,7 +131,7 @@ const FormularioEditar = ({ time, onClose }) => {
               obrigatorio={true}
               onChange={(e) => setCor(e.target.value)}
               erro={errors.cor}
-              value={time.cor}
+              value={item.cor}
             />
           </FormGroup>
           <ButtonGroup>
@@ -145,7 +145,7 @@ const FormularioEditar = ({ time, onClose }) => {
 };
 
 FormularioEditar.propTypes = {
-  time: PropTypes.object.isRequired,
+  item: PropTypes.object.isRequired,
   onClose: PropTypes.func.isRequired
 };
 

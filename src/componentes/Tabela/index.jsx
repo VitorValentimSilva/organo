@@ -152,6 +152,7 @@ const Tabela = ({ nomeTabela }) => {
         <FormularioEditar
           item={itemSelecionado}
           onClose={() => setItemSelecionado(null)}
+          nomeTabela={nomeTabela}
         />
       )}
     </SectionEstilizado>

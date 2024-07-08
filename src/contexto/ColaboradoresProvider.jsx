@@ -36,8 +36,33 @@ export const ColaboradoresProvider = ({ children }) => {
     }
   }
 
+  const editarColaborador = async (dadosColaborador) => {
+    try {
+      const response = await fetch(`https://tourmaline-climbing-runner.glitch.me/colaboradores/${dadosColaborador.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dadosColaborador),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Falha ao atualizar o Colaborador');
+      }
+
+      const colaboradorAtualizado = await response.json();
+      setColaboradores((colaboradores) =>
+        colaboradores.map((colaborador) => (colaborador.id === dadosColaborador.id ? { ...colaborador, ...colaboradorAtualizado } : colaborador))
+      );
+  
+      alert('Colaborador atualizado com sucesso!');
+    } catch (error) {
+      console.error('Erro ao atualizar o Colaborador:', error);
+    }
+  };
+
   return (
-    <ColaboradoresContext.Provider value={{ colaboradores, adicionarColaborador }}>
+    <ColaboradoresContext.Provider value={{ colaboradores, adicionarColaborador, editarColaborador }}>
       {children}
     </ColaboradoresContext.Provider>
   );

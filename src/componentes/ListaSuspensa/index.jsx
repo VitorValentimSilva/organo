@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import useTimesContext from "../../contexto/useTimesContext";
 
-const ListaSuspensa = ({ nome, obrigatorio, onChange, className, erro }) => {
+const ListaSuspensa = ({ nome, obrigatorio, onChange, className, erro, value }) => {
   const { times } = useTimesContext();
 
   return (
@@ -12,8 +12,9 @@ const ListaSuspensa = ({ nome, obrigatorio, onChange, className, erro }) => {
         required={obrigatorio} 
         className={className} 
         onChange={onChange}
+        value={value}
       >
-        <option value="0">{erro || `--Selecione um ${nome}--`}</option>
+        <option value="">{erro || `--Selecione um ${nome}--`}</option>
         {times.map(time => <option key={time.id} value={time.nome}>{time.nome}</option>)}
       </select>
     </>
@@ -25,7 +26,8 @@ ListaSuspensa.propTypes = {
   obrigatorio: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   className: PropTypes.string,
-  erro: PropTypes.string
+  erro: PropTypes.string,
+  value: PropTypes.string
 };
 
-export default ListaSuspensa
+export default ListaSuspensa;

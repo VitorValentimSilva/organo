@@ -61,8 +61,25 @@ export const ColaboradoresProvider = ({ children }) => {
     }
   };
 
+  const excluirColaborador = async (id) => {
+    try {
+      const response = await fetch(`https://tourmaline-climbing-runner.glitch.me/colaboradores/${id}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        throw new Error('Falha ao excluir Colaborador');
+      }
+
+      setColaboradores((colaboradores) => colaboradores.filter((colaborador) => colaborador.id !== id));
+      alert('Colaborador excluído com sucesso!');
+    } catch (error) {
+      console.error('Erro ao excluir Colaborador:', error);
+    }
+  };
+
   return (
-    <ColaboradoresContext.Provider value={{ colaboradores, adicionarColaborador, editarColaborador }}>
+    <ColaboradoresContext.Provider value={{ colaboradores, adicionarColaborador, editarColaborador, excluirColaborador }}>
       {children}
     </ColaboradoresContext.Provider>
   );

@@ -12,7 +12,9 @@ const MainEstilizado = styled.main`
 const Inicio = () => {
   return(
     <MainEstilizado>
-      <Formulario />
+      <Formulario 
+        nomeFormulario="colaborador"
+      />
       
       <Times />
     </MainEstilizado>

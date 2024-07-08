@@ -55,8 +55,31 @@ export const TimesProvider = ({ children }) => {
     }
   };
 
+  const adicionarTime = async (novoTime) => {
+    try{
+      const response = await fetch('https://tourmaline-climbing-runner.glitch.me/times', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(novoTime),
+      });
+
+      if (!response.ok) {
+        throw new Error('Falha ao adicionar o time');
+      }
+
+      const adicionaTime = await response.json();
+      setTimes([...times, adicionaTime]);
+      alert('Time adicionado com sucesso!');
+    }
+    catch(error){
+      console.error('Erro ao adicionar o TIme:', error);
+    }
+  }
+
   return (
-    <TimesContext.Provider value={{ times, editarTime, excluirTime }}>
+    <TimesContext.Provider value={{ times, editarTime, excluirTime, adicionarTime }}>
       {children}
     </TimesContext.Provider>
   );

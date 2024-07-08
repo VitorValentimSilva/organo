@@ -6,6 +6,7 @@ import AdmPagina from "./page/AdmPaginaBase"
 import ProtectedRoute from "./componentes/ProtectedRoute/ProtectedRoute"
 import ListaDeTimes from "./page/ListaDeTimes"
 import ListaDeColaboradores from "./page/ListaDeColaboradores"
+import AdicionarTime from "./page/AdicionarTime"
 
 const AppRoutes = () => {
   return (
@@ -18,7 +19,7 @@ const AppRoutes = () => {
         <Route path="/login" element={ <Login /> } />
         <Route path="/adm" element={<ProtectedRoute element={ <AdmPagina /> } />}>
           <Route path="listaTimes" element={ <ListaDeTimes /> } />
-          <Route path="adicionarTimes" element={<div>Adicionar Times</div>} />
+          <Route path="adicionarTimes" element={ <AdicionarTime /> } />
           <Route path="listaColaboradores" element={ <ListaDeColaboradores /> } />
         </Route>
       </Routes>

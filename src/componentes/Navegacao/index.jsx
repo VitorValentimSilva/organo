@@ -10,6 +10,17 @@ const SectionEstilizada = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+  @media(max-width: 830px){
+    height: 250px;
+    min-height: 0%;
+    padding: 25px 0 0 0;
+    margin-bottom: 15px;
+  }
+
+  @media(max-width: 450px){
+    align-items: normal;
+  }
 `;
 
 const NavEstilizado = styled.nav`
@@ -20,6 +31,7 @@ const NavEstilizado = styled.nav`
   align-items: center;
   justify-content: center;
   font-size: 20px;
+  margin-left: 25px;
 
   ul {
     list-style: none;
@@ -74,11 +86,25 @@ const NavEstilizado = styled.nav`
       }
     }
   }
+
+  @media(max-width: 830px){
+    width: 30%;
+    max-width: 200px;
+
+      li{
+        padding: 10px 10px;
+      }
+    
+  }
 `;
 
 const Logo = styled.img`
   width: 150px;
   height: auto;
+
+  @media(max-width: 830px){
+    display: none;
+  }
 `;
 
 const Titulo = styled.h1`
@@ -88,6 +114,11 @@ const Titulo = styled.h1`
   font-size: 35px;
   border-bottom: 2px solid #FFFFFF;
   padding-bottom: 10px;
+
+  @media(max-width: 830px){
+    font-size: 30px;
+    margin-top: 0;
+  }
 `;
 
 const Navegacao = ({ nomeNav1, nomeNav2 }) => {

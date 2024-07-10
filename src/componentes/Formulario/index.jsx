@@ -207,7 +207,7 @@ const Formulario = ({ nomeFormulario }) => {
   };
 
   return (
-    <SectionEstilizado nomeformulario={nomeFormulario}>
+    <SectionEstilizado nomeformulario={nomeFormulario} className="formulario">
       <h2>Preencha os dados para criar um novo {nomeFormulario}.</h2>
 
       <form onSubmit={onSubmit}>

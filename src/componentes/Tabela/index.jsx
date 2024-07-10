@@ -13,6 +13,10 @@ const SectionEstilizado = styled.section`
   background-color: #f9f9f9;
   width: 100%;
   height: 100%;
+
+  @media (max-width: 830px) {
+    padding: 0;
+  }
 `;
 
 const Table = styled.table`
@@ -20,6 +24,12 @@ const Table = styled.table`
   border-collapse: collapse;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 600px) {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 `;
 
 const TableHead = styled.thead`
@@ -50,6 +60,11 @@ const TableData = styled.td`
 const ButtonWrapper = styled.div`
   display: flex;
   gap: 10px;
+
+  @media (max-width: 600px) {
+    justify-content: center;
+    padding: 8px 0;
+  }
 `;
 
 const EditButton = styled.button`
@@ -63,6 +78,11 @@ const EditButton = styled.button`
 
   &:hover {
     background-color: #0056b3;
+  }
+
+  @media (max-width: 600px) {
+    padding: 6px 12px;
+    font-size: 14px;
   }
 `;
 

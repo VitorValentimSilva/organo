@@ -44,7 +44,7 @@ const Times = () => {
   const { colaboradores } = useColaboradoresContext()
 
   function botaoFormulario(){
-    let formularioColaborador = document.querySelector(".formularioColaborador")
+    let formularioColaborador = document.querySelector(".formulario")
 
     if(formularioColaborador.style.display == "none"){ formularioColaborador.style.display = "flex" }
     else{ formularioColaborador.style.display = "none" }
